@@ -1,10 +1,8 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Sign up</h1>
-    </div>
+  <h1>Sign up</h1>
+  <div class="well row">
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="register(form)" novalidate>
 
@@ -55,10 +53,10 @@
         </div>
 
         <div>
-          <button class="btn btn-inverse btn-lg btn-login" type="submit">
+          <button class="btn btn-inverse btn-lg btn-login btn-primary" type="submit">
             Sign up
           </button>
-          <a class="btn btn-default btn-lg btn-register" href="/login">
+          <a class="btn btn-default btn-lg btn-register pull-right" href="/login">
             Login
           </a>
         </div>

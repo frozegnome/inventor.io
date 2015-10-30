@@ -8,11 +8,32 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
  * App-wide Styles
  */
 
+html,
+body {
+	width: 100%;
+	height: auto;
+}
+
+body {
+	font-family: "Comfortaa", 700;
+    background: #575797;
+} 
+
+h1 {
+	color: white;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
+}
+
+.container {
+	hr {
+		border: 0;
+	}
 }
 
 // Component styles are injected through grunt
