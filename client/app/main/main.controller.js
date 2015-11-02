@@ -3,26 +3,25 @@
 angular.module('inventorioApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
     var vm = this;
-    vm.testItems = [];
 
-    $http.get('/api/items').success(function(testItems) {
-      vm.testItems = testItems;
-      socket.syncUpdates('thing', vm.testItems);
-    });
+    vm.itemList = {};
+    vm.itemToAdd = {};
 
-    vm.addThing = function() {
-      if(vm.newItem === '') {
+    $http.get('/api/items')
+      .success(function(testItems) {
+        vm.itemList = testItems;
+        socket.syncUpdates('thing', vm.testItems);
+      });
+
+    vm.addItem = function() {
+      if(vm.itemToAdd === '') {
         return;
       }
       $http.post('/api/items', { name: vm.newItem });
       vm.newItem = '';
     };
 
-    vm.deleteThing = function(item) {
+    vm.deleteItem = function(item) {
       $http.delete('/api/items/' + item._id);
     };
-
-    $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('item');
-    });
   });
