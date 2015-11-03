@@ -5,10 +5,8 @@ var mongoose = require('mongoose'),
 
 var ItemSchema = new Schema({
   name: String,
-  type: String,
-  info: String,
   quantity: Number,
-  isStocked: Boolean
+  isActive: Boolean
 });
 
 module.exports = mongoose.model('Item', ItemSchema);

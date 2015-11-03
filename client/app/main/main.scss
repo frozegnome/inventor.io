@@ -1,3 +1,7 @@
+ul {
+    font-family: "Roboto";
+}
+
 .thing-form {
     margin: 20px 0;
 }
@@ -37,10 +41,13 @@
     display: inline;
     margin: 20px 0;
     padding: 10px;
-    transition: border .3s;
     width: 50%;
 }
 
 .item-search {
     float: left;
+}
+
+.quantity {
+    margin: -25px 0 0;
 }

@@ -1,27 +1,28 @@
 'use strict';
 
 angular.module('inventorioApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
+  .controller('MainCtrl', function ($scope, socket, Auth, Inventory) {
     var vm = this;
 
-    vm.itemList = {};
+    vm.itemListActive = [];
+    vm.itemListInactive = [];
     vm.itemToAdd = {};
 
-    $http.get('/api/items')
-      .success(function(testItems) {
-        vm.itemList = testItems;
-        socket.syncUpdates('thing', vm.testItems);
+    $scope.isLoggedIn = Auth.isLoggedIn;
+
+    activate();
+
+    function activate() {
+      Inventory.getItems()
+      .success(function(response) {
+        angular.forEach(response, function(val) {
+          if(val.isActive) {
+            vm.itemListActive.push(val);
+          }
+          else {
+            vm.itemListInactive.push(val);
+          }
+        });
       });
-
-    vm.addItem = function() {
-      if(vm.itemToAdd === '') {
-        return;
-      }
-      $http.post('/api/items', { name: vm.newItem });
-      vm.newItem = '';
-    };
-
-    vm.deleteItem = function(item) {
-      $http.delete('/api/items/' + item._id);
-    };
+    }
   });
