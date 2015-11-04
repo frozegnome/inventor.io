@@ -3,7 +3,7 @@
 angular.module('inventorioApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
 
-    $scope.isCollapsed = true;
+    $scope.isCollapsed = false;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;

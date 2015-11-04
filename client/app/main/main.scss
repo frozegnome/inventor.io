@@ -5,6 +5,7 @@ ul {
 .thing-form {
     margin: 20px 0;
 }
+
 .footer {
     color: white;
     text-align: center;
@@ -12,16 +13,24 @@ ul {
     margin-top: 70px;
     border-top: 1px solid #E5E5E5;
 }
+
 .navbar {
     font-family: "Comfortaa", 700;
     box-shadow: 0 3px 5px rgba(0, 0, 0, .4);
+
+    .navbar-toggle {
+        margin-top: 0;
+    }
 }
+
 .navbar-text {
     margin-left: 15px;
 }
+
 .navbar-header {
     margin-top: 10px;
 }
+
 .navbar-brand {
     border: 2px solid #777;
     height: 30px;
@@ -40,11 +49,10 @@ ul {
     margin: 20px 0;
 }
 
-.item-search {
-    float: left;
-}
-
 .quantity {
     margin: -25px 0 0;
 }
 
+.side-btn {
+    margin-left: 8px;
+}
