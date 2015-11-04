@@ -7,6 +7,7 @@ angular.module('inventorioApp')
 
     vm.itemListActive = [];
     vm.itemListInactive = [];
+    vm.itemToAdd = {};
     vm.tempItem = Inventory.getServiceItem();
 
     $scope.isLoggedIn = Auth.isLoggedIn;
@@ -19,7 +20,7 @@ angular.module('inventorioApp')
     };
 
     vm.addNewItem = function() {
-      Inventory.postItem(vm.tempItem)
+      Inventory.postItem(vm.itemToAdd)
       .success(function(response) {
         console.log('I guess something went right');
         console.log(response);
@@ -40,6 +41,20 @@ angular.module('inventorioApp')
         console.log('sorry, that didn\'t work man');
         console.log(response);
       });
+    };
+
+    vm.deleteCurrentItem = function() {
+      console.log('oookkkkkk');
+      Inventory.deleteItem(vm.tempItem)
+      .success(function(response) {
+        console.log('I guess something went right');
+        console.log(response);
+      })
+      .error(function(response) {
+        console.log('sorry, that didn\'t work man');
+        console.log(response);
+      });
+      $state.go('main');
     };
 
     function activate() {

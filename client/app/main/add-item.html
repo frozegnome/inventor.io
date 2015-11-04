@@ -7,14 +7,14 @@
 		<form action="submit" ng-submit="main.addNewItem()">
 			<div class="form-group">Name:</div>
 			<input type="text" class="form-control"
-				   ng-model="main.tempItem.name">
+				   ng-model="main.itemToAdd.name">
 			<div class="form-group">Quantity:</div>
 			<input type="number" class="form-control" 
 				   min="0" max="99"
-				   ng-model="main.tempItem.quantity">
+				   ng-model="main.itemToAdd.quantity">
 			<button class="btn btn-primary pull-left">Submit</button>
 		</form>
-		<a href="/" class="pull-right">
+		<a href="/" class="pull-left">
 			<button class="btn btn-default">Back</button>
 		</a>
 	</div>

@@ -25,7 +25,8 @@ angular.module('inventorioApp')
 			console.log(item);
 			var service = $http({
 				method: 'POST',
-				url: baseUrl + 'api/items'
+				url: baseUrl + '/api/items',
+				data: item
 			});
 			return service;
 		};
@@ -34,14 +35,15 @@ angular.module('inventorioApp')
 			console.log(item);
 			var service = $http({
 				method: 'PUT',
-				url: baseUrl + '/api/items/' + item._id
+				url: baseUrl + '/api/items/' + item._id,
+				data: item
 			});
 			return service;
 		};
 
 		this.deleteItem = function(item) {
 		    var service = $http({
-		      method: 'DELTE',
+		      method: 'DELETE',
 		      url: baseUrl + '/api/items/' + item._id
 		    });
 		    return service;
