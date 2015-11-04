@@ -1,0 +1,21 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+	<h1>Add an Item</h1>
+	<h3 class="alert alert-warning" ng-hide="isLoggedIn()">Please <a href="/login">login</a> or <a href="/signup">sign up</a> to view the item list</h3>
+	<div class="well" ng-show="isLoggedIn()">
+		<form action="submit" ng-submit="main.addNewItem()">
+			<div class="form-group">Name:</div>
+			<input type="text" class="form-control"
+				   ng-model="main.tempItem.name">
+			<div class="form-group">Quantity:</div>
+			<input type="number" class="form-control" 
+				   min="0" max="99"
+				   ng-model="main.tempItem.quantity">
+			<button class="btn btn-primary pull-left">Submit</button>
+		</form>
+		<a href="/" class="pull-right">
+			<button class="btn btn-default">Back</button>
+		</a>
+	</div>
+</div>

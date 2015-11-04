@@ -26,22 +26,18 @@ ul {
     border: 2px solid #777;
     height: 30px;
     line-height: 6px;
+    margin-left: 5px;
     padding: 10px 15px;
 }
 
 .well {
+    @include clearfix;
     box-shadow: -4px 4px 5px rgba(0, 0, 0, .4);
 }
 
-.item-input {
-    background: rgba(0, 0, 0, .6);
-    border: solid 2px white;
-    border-radius: 5px;
-    color: white;
-    display: inline;
+.form-control {
+    font-family: "Roboto";
     margin: 20px 0;
-    padding: 10px;
-    width: 50%;
 }
 
 .item-search {
@@ -51,3 +47,4 @@ ul {
 .quantity {
     margin: -25px 0 0;
 }
+
