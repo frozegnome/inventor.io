@@ -1,53 +1,47 @@
-'use strict';
+'use strict'
 
-var path = require('path');
-var _ = require('lodash');
+var path = require('path'),
+	_ = require('lodash');
 
-function requiredProcessEnv(name) {
-  if(!process.env[name]) {
-    throw new Error('You must set the ' + name + ' environment variable');
-  }
-  return process.env[name];
+function requireEnv(name) {
+	if(!process.env[name]) {
+		throw new Error('Please set the following environment variable: ' + name);
+	}
+	return process.env[name];
 }
 
-// All configurations will extend these options
-// ============================================
-var all = {
-  env: process.env.NODE_ENV,
+// Base Environment Configuration
 
-  // Root path of server
-  root: path.normalize(__dirname + '/../../..'),
+var base = {
+	env: process.env.NODE_ENV,
 
-  // Server port
-  port: process.env.PORT || 9000,
+	// Root Path
+	root: path.normalize(__dirname + '/../../..'),
 
-  // Server IP
-  ip: process.env.IP || '0.0.0.0',
+	// Port
+	port: process.env.PORT || 9000,
 
-  // Should we populate the DB with sample data?
-  seedDB: false,
+	// IP
+	ip: process.env.IP || '0.0.0.0',
 
-  // Secret for session, you will want to change this and make it an environment variable
-  secrets: {
-    session: 'inventorio-secret'
-  },
+	// Session Secret
+	secrets: {
+		session: process.env.SESSION_SECRET,
+	},
 
-  // List of user roles
-  userRoles: ['guest', 'user', 'admin'],
+	// User Roles
+	userRoles: ['guest', 'user', 'admin'],
 
-  // MongoDB connection options
-  mongo: {
-    options: {
-      db: {
-        safe: true
-      }
-    }
-  },
-
+	// MongoDB Connection
+	mongo: {
+		options: {
+			db: {
+				safe: true
+			}
+		}
+	},
 };
 
-// Export the config object based on the NODE_ENV
-// ==============================================
-module.exports = _.merge(
-  all,
-  require('./' + process.env.NODE_ENV + '.js') || {});
+
+// Merge and export the above configuration object based on NODE_ENV
+module.exports = _.merge(base, require('./' + process.env.NODE_ENV + '.js') || {})

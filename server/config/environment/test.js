@@ -1,10 +1,9 @@
 'use strict';
 
-// Test specific configuration
-// ===========================
+// Test Environment
+
 module.exports = {
-  // MongoDB connection options
-  mongo: {
-    uri: 'mongodb://localhost/inventorio-test'
-  }
+	mongo: {
+		uri: 'mongodb://localhost/inventorio-test'
+	}
 };

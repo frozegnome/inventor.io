@@ -1,12 +1,9 @@
-'use strict';
+'use strict'
 
-// Development specific configuration
-// ==================================
+// Development Environment
+
 module.exports = {
-  // MongoDB connection options
-  mongo: {
-    uri: 'mongodb://localhost/inventorio-dev'
-  },
-
-  seedDB: false
+	mongo: {
+		uri: 'mongodb://localhost/inventorio-dev'
+	}
 };
