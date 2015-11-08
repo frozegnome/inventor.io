@@ -1,15 +1,15 @@
 'use strict';
 
 var express = require('express'),
-	favicon = require('serve-favicon'),
-	compression = require('compression'),
-	bodyParser = require('body-parser'),
-	methodOverride = require('method-override'),
-	cookieParser = require('cookie-parser'),
-	path = require('path'),
-	passport = require('passport'),
-	errorHandler = require('error-handler'),
-	config = require('./environment');
+		favicon = require('serve-favicon'),
+		compression = require('compression'),
+		bodyParser = require('body-parser'),
+		methodOverride = require('method-override'),
+		cookieParser = require('cookie-parser'),
+		path = require('path'),
+		passport = require('passport'),
+		errorHandler = require('error-handler'),
+		config = require('./environment');
 
 module.exports = function(app) {
 	var env = app.get('env');
