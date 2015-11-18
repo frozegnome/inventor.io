@@ -44,17 +44,19 @@ angular.module('inventorioApp')
     };
 
     vm.deleteCurrentItem = function() {
-      console.log('oookkkkkk');
-      Inventory.deleteItem(vm.tempItem)
-      .success(function(response) {
-        console.log('I guess something went right');
-        console.log(response);
-      })
-      .error(function(response) {
-        console.log('sorry, that didn\'t work man');
-        console.log(response);
-      });
-      $state.go('main');
+      var confirmDelete = confirm('Are you sure you want to delete ' + vm.tempItem.name + '?');
+      if(confirmDelete) {
+        Inventory.deleteItem(vm.tempItem)
+        .success(function(response) {
+          console.log('I guess something went right');
+          console.log(response);
+        })
+        .error(function(response) {
+          console.log('sorry, that didn\'t work man');
+          console.log(response);
+        });
+        $state.go('main');
+      }
     };
 
     function activate() {

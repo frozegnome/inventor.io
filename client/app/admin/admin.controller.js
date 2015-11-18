@@ -7,11 +7,14 @@ angular.module('inventorioApp')
     $scope.users = User.query();
 
     $scope.delete = function(user) {
-      User.remove({ id: user._id });
-      angular.forEach($scope.users, function(u, i) {
-        if (u === user) {
-          $scope.users.splice(i, 1);
-        }
-      });
+      var confirmDelete = confirm('Are you sure you want to delete ' + user.name + '?');
+      if(confirmDelete) {
+        User.remove({ id: user._id });
+        angular.forEach($scope.users, function(u, i) {
+          if (u === user) {
+            $scope.users.splice(i, 1);
+          }
+        });
+      }
     };
   });

@@ -8,7 +8,7 @@
   <h3 class="alert alert-warning" ng-hide="isLoggedIn()">Please <a href="/login">login</a> or <a href="/signup">sign up</a> to view the item list</h3>
   <h2 ng-show="isLoggedIn()">In Stock</h2>
   <div class="well" ng-show="isLoggedIn()">
-    <ul class="list-group">
+    <ul class="list-group" ng-model="main.itemListActive" ui-sortable>
       <a class="list-group-item"
          ng-repeat="item in main.itemListActive" 
          ng-click="main.transferEditView(item)">
@@ -19,7 +19,7 @@
   </div>
   <h2 ng-show="isLoggedIn()">Out of Stock</h2>
   <div class="well" ng-show="isLoggedIn()">
-    <ul class="list-group">
+    <ul class="list-group" ng-model="main.itemListInactive" ui-sortable>
       <a class="list-group-item list-group-item-danger" 
          ng-repeat="item in main.itemListInactive"
          ng-click="main.transferEditView(item)">
