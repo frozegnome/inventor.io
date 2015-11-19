@@ -41,6 +41,10 @@ ul {
 
 .well {
     @include clearfix;
+    animation-duration: .4s;
+    animation-iteration-count: 1;
+    animation-name: loadInWell;
+    animation-timing-function: ease-in;
     box-shadow: -4px 4px 5px rgba(0, 0, 0, .4);
 }
 

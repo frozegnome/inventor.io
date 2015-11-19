@@ -57,6 +57,18 @@ h3 {
 	}
 }
 
+// Keyframes
+@keyframes loadInWell {
+  0% {
+    filter: opacity(.25);
+    transform: translateY(15px);
+  }
+  100% {
+    filter: opacity(1);
+    transform: translateY(0);
+  }
+}
+
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
