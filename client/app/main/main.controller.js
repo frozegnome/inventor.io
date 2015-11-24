@@ -16,13 +16,16 @@ angular.module('inventorioApp')
 
     activate();
 
+    // UI Sortable options
+    vm.sortOptions = {};
+
     // Transfers temporary item to service for transferring views
     vm.transferEditView = function(i) {
       Inventory.setServiceItem(i);
       $state.go('edit');
     };
 
-    // Calls GET service to remove item from interface
+    // Calls POST service to add item to interface
     vm.addNewItem = function() {
       Inventory.postItem(vm.itemToAdd)
       .success(function(response) {
